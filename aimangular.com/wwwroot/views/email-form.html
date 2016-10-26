@@ -1,0 +1,26 @@
+<form class="col-md-6 form-horizontal" name="emailForm" novalidate>
+    <div class="form-group">
+        <label for="from" class="col-sm-2 control-label">From:</label>
+        <div class="col-sm-10"><input name="from" class="form-control" type="text" name="From" disabled="disabled" ng-value="composer.form.from" required/></div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : !composer.validateEmails() || (emailForm.to.$invalid && emailForm.to.$touched) }">
+        <label for="to" class="col-sm-2 control-label">To:</label>
+        <div class="col-sm-10">
+            <input name="to" class="form-control" type="text" name="To" maxlength="128" ng-model="composer.form.to" required placeholder="use comma to separate emails"/>
+            <p ng-show="!composer.validateEmails() && emailForm.to.$touched" class="help-block">Email is not valid.</p>
+            <p ng-show="emailForm.to.$error.required && emailForm.to.$touched" class="help-block">Recipient is required.</p>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : emailForm.subject.$invalid && emailForm.subject.$touched }">
+        <label for="subject" class="col-sm-2 control-label">Subject:</label>
+        <div class="col-sm-10">
+            <input name="subject" class="form-control" type="text" name="Subject" maxlength="128" ng-model="composer.form.subject" required/>
+            <p ng-show="emailForm.subject.$error.required && emailForm.subject.$touched" class="help-block">Subject is required.</p>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error' : emailForm.message.$invalid && emailForm.message.$touched }">
+        <label for="message" class="col-sm-2 control-label">Message:</label>
+        <textarea name="message" class="form-control" name="Message" rows="4" cols="50" ng-model="composer.form.message" required></textarea>
+    </div>
+    <a class="btn btn-lg btn-primary pull-right" type="button" ng-click="composer.send(composer.form)">Send</a>
+</form>

@@ -1,0 +1,29 @@
+aim_homepage:
+    path:   /
+    defaults: { _controller: AimBundle:Default:index }
+
+#REST
+aim_letters:
+    path:   /api/letters/all
+    defaults: { _controller: AimBundle:Default:letter }
+    methods:  [GET]
+
+aim_letters_add:
+    path:   /api/letters/add
+    defaults: { _controller: AimBundle:Default:letterAdd }
+    methods:  [POST]
+
+aim_register:
+    path:   /api/register
+    defaults: { _controller:  AimBundle:Default:registration }
+    methods:  [POST]
+
+aim_token:
+    path:   /api/token
+    defaults: { _controller: AimBundle:Default:token }
+    methods:  [GET]
+
+aim_login:
+    path:   /api/login
+    defaults: { _controller:  AimBundle:Default:login }
+    methods:  [POST,OPTIONS]

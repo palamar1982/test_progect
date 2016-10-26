@@ -1,0 +1,16 @@
+AimBundle\Entity\Letters:
+    exclusion_policy: ALL
+    group: letters
+    properties:
+        id:
+            expose: true
+        user_id:
+            expose: true
+        destination:
+            expose: true
+        balance:
+            expose: true
+        subject:
+            expose: true
+        message:
+            expose: true

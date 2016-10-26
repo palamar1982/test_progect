@@ -1,0 +1,41 @@
+<div class="col-md-6" style="float:none; margin: 0 auto;">
+    <form name="registerForm" class="form-horizontal" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : registerForm.name.$invalid && registerForm.name.$touched }">
+            <label for="name" class="col-sm-4 control-label">Username</label>
+            <div class="col-sm-8">
+                <input name="name" class="form-control" type="text" ng-minlength="4" maxlength="64" required ng-model="register.form.username" />
+                <p ng-show="registerForm.name.$error.required && registerForm.name.$touched" class="help-block">Username is required.</p>
+                <p ng-show="registerForm.name.$error.minlength && registerForm.name.$touched" class="help-block">Username is too short.</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : registerForm.email.$invalid && registerForm.email.$touched }">
+            <label for="email" class="col-sm-4 control-label">Email</label>
+            <div class="col-sm-8">
+                <input name="email" class="form-control" type="email" ng-minlength="4" maxlength="64" required ng-model="register.form.email" />
+                <p ng-show="registerForm.email.$error.email && registerForm.email.$touched" class="help-block">Enter a valid email.</p>
+                <p ng-show="registerForm.email.$error.required && registerForm.email.$touched" class="help-block">Email is required.</p>
+                <p ng-show="registerForm.email.$error.minlength && registerForm.email.$touched" class="help-block">Email is too short.</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : registerForm.password.$invalid && registerForm.password.$touched }">
+            <label for="password" class="col-sm-4 control-label">Password</label>
+            <div class="col-sm-8">
+                <input name="password" class="form-control" type="password" ng-minlength="6" maxlength="64" required ng-model="register.form.password" />
+                <p ng-show="registerForm.password.$error.required && registerForm.password.$touched" class="help-block">Password is required.</p>
+                <p ng-show="registerForm.password.$error.minlength && registerForm.password.$touched" class="help-block">Password is too short.</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : (register.samePasswords() || (registerForm.repassword.$invalid && registerForm.repassword.$touched)) }">
+            <label for="repassword" class="col-sm-4 control-label">Repeat Password</label>
+            <div class="col-sm-8">
+                <input name="repassword" class="form-control" type="password" maxlength="64" required ng-model="register.form.repeatPassword" />
+                <p ng-show="register.samePasswords()" class="help-block">Passwords do not match.</p>
+            </div>
+        </div>
+        <input type="hidden" name="antiforgerytoken" ng-model="register.form.token" ng-value="register.form.token"/>
+        <input class="btn btn-primary btn-lg pull-right" type="button" ng-click="register.tryRegister(register.form)" value="Register" />
+    </form>
+    <div class="col-md-12">
+        <a class="btn btn-link pull-right" ui-sref="login" style="padding:15px 0 0 0;">Back to login</a>
+    </div>
+</div>

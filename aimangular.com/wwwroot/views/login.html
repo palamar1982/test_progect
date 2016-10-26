@@ -1,0 +1,23 @@
+<div class="col-md-6" style="float:none; margin: 0 auto;">
+    <form name="loginForm" class="form-horizontal" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : loginForm.username.$invalid && loginForm.username.$touched }">
+            <label for="username" class="col-sm-4 control-label">Username</label>
+            <div class="col-sm-8">
+                <input name="username" class="form-control" type="text" ng-maxlength="64" required ng-model="login.form.username" />
+                <p ng-show="loginForm.username.$error.required && loginForm.username.$touched" class="help-block">Username is required.</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && loginForm.password.$touched }">
+            <label for="password" class="col-sm-4 control-label">Password</label>
+            <div class="col-sm-8">
+                <input name="password" class="form-control" type="password" ng-maxlength="64" required ng-model="login.form.password" />
+                <p ng-show="loginForm.password.$error.required && loginForm.password.$touched" class="help-block">Password is required.</p>
+            </div>
+        </div>
+
+        <input class="btn btn-primary btn-lg pull-right" type="button" ng-click="login.tryLogin(login.form)" value="Login" />
+    </form>
+    <div class="col-md-12">
+        <a class="btn btn-link pull-right" ui-sref="register" style="padding:15px 0 0 0;">Or create new account</a>
+    </div>
+</div>

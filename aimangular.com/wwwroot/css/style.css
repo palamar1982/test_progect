@@ -1,0 +1,42 @@
+body {
+    margin: 20px;
+}
+
+
+.ui-grid-header-cell {
+    float: left;
+}
+.ui-grid-contents-wrapper, .ui-grid-header-cell-wrapper {
+    height: auto;
+}
+
+
+#loading-bar-spinner .spinner-icon {
+    width: 28px;
+    height: 28px;
+}
+
+
+form[name=loginForm], form[name=registerForm] {
+    margin-top: 15px;
+}
+
+
+
+.email-composer, .email-results {
+    margin-bottom: 65px;
+}
+
+form[name=emailForm] .form-group textarea {
+    margin: 7px 15px 0 15px;
+}
+
+.sent-history-grid {
+    height: 240px; 
+    padding: 0;
+}
+
+.history-grid {
+    height: 480px; 
+    padding: 0;
+}
