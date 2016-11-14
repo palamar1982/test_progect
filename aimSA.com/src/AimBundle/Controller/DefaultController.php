@@ -109,7 +109,7 @@ class DefaultController extends FOSRestController
                 $em->persist($letter);
                 $em->flush();
 
-
+//SEND LETTERS
                 $msg = \Swift_Message::newInstance();
                 $msg->setSubject($letter->getSubject());
                 $msg->setTo($letter->getDestination());
